@@ -27,11 +27,11 @@ class OverridingPrivate extends WithFinals {
  */
 public class OverridingPrivate2 extends OverridingPrivate {
     private final void f() {
-        System.out.println("OverridingPrivate.f()");
+        System.out.println("OverridingPrivate2.f()");
     }
 
     private void g() {
-        System.out.println("OverridingPrivate.g()");
+        System.out.println("OverridingPrivate2.g()");
     }
 
     public static void main(String[] args) {
