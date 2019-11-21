@@ -1,7 +1,4 @@
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 /**
  * 牛牛和羊羊正在玩一个纸牌游戏。这个游戏一共有n张纸牌, 第i张纸牌上写着数字ai。
@@ -36,7 +33,6 @@ public class Poker {
                 list.add(sc.nextInt());
             }
         }
-
         sc.close();
 
         list.sort((a, b) -> {
