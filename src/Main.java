@@ -1,28 +1,34 @@
+import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Comparator;
+import java.util.List;
 
 public class Main {
 
     public static void main(String[] args) {
-        String a = "10";
-        String b = a;
-        a = "20";
-        System.out.println(b);
+        //System.out.println("Hello World!");
+        List<Integer> list = new ArrayList<Integer>(Arrays.asList(new Integer[]{1,2,3,4,5,6,7,8,9}));
+        System.out.println(list.hashCode());
+        foo(list);
+        //list = list1;
+        System.out.println(list.hashCode());
 
-        Comparable<String> comparable = new Comparable<String>() {
-            @Override
-            public int compareTo(String o) {
-                return 0;
-            }
-        };
-
-        Comparator<String> com = (s1,s2) -> s1.length() - s2.length();
-
-        String[] arr = {"aa","bbb"};
-
-        Arrays.sort(arr,(s1,s2) -> s1.length() - s2.length());
-
+        System.out.println(list);
 
     }
 
+
+    public static void foo(List<Integer> list){
+
+        ArrayList<Integer> list1 = new ArrayList<Integer>();
+        for (int i = 0; i < list.size(); i++) {
+            if (list.get(i) % 2 != 0) {
+                list1.add(list.get(i));
+            }
+        }
+
+        list = list1;
+        System.out.println(list.hashCode());
+        list.add(10);
+
+    }
 }
