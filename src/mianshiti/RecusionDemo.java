@@ -1,5 +1,7 @@
 package mianshiti;
 
+import java.util.ArrayList;
+
 public class RecusionDemo {
 
     //1.求一个数的幂
@@ -59,6 +61,7 @@ public class RecusionDemo {
         System.out.println(res2);
         System.out.println(res3);
         System.out.println(res4);
+        Integer.valueOf(10);
     }
 
 
