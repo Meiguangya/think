@@ -7,6 +7,8 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 public class ChatServer {
 
@@ -14,10 +16,12 @@ public class ChatServer {
     private ServerSocket serverSocket;
     private String quit = "quit";
     private Map<Integer, Writer> chatRoom;
+    private ExecutorService executorService;
 
     //构造方法
     public ChatServer() {
         chatRoom = new HashMap<>();
+        executorService = Executors.newFixedThreadPool(200);
     }
 
     /**
@@ -93,7 +97,8 @@ public class ChatServer {
             while (true) {
                 Socket socket = serverSocket.accept();
                 //启动用于处理用户消息接收和群发线程
-                new Thread(new ChatHandler(this, socket)).start();
+                //new Thread(new ChatHandler(this, socket)).start();
+                executorService.execute(new ChatHandler(this,socket));
             }
         } catch (IOException e) {
             e.printStackTrace();
