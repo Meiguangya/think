@@ -1,4 +1,4 @@
-package huaweijishi;
+package huaweijishi.word;
 
 import java.util.Scanner;
 
